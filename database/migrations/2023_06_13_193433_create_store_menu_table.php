@@ -15,13 +15,12 @@ return new class extends Migration
     {
         Schema::create('store_menu', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->bigInteger('store_id')->unsigned()->index();
-            $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
+            $table->bigInteger('store_id');
             $table->string('name');
             $table->integer('price');
             $table->string('info');
             $table->integer('type');
+            $table->timestamps();
         });
     }
 
