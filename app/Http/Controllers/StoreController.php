@@ -97,6 +97,7 @@ class StoreController extends Controller
      */
     public function destroy($id)
     {
+        //削除する
         $stores = Ask::findOrFail($id)->delete();
 
         return redirect('stores.index');
