@@ -42,7 +42,7 @@ class StoreController extends Controller
         $store->pr = $request->input('pr');
         $store->save();
 
-        return redirect('stores.index');
+        return to_route('stores.index');
 
       
     }
@@ -56,8 +56,8 @@ class StoreController extends Controller
     public function show($id)
     {
         $store = Stores::find($id);
-        dd($store);
-        return view('stores.show');
+        //dd($store);
+        return view('stores.show', compact('store'));
     }
 
     /**
@@ -68,7 +68,9 @@ class StoreController extends Controller
      */
     public function edit($id)
     {
-        return view('stores.edit');
+        $store = Stores::find($id);
+        //dd($id);
+        return view('stores.edit', compact('store'));
     }
 
     /**
@@ -80,13 +82,13 @@ class StoreController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $store = Post::findOrFail($id);
+        $store = Stores::findOrFail($id);
         $store->name = $request->input('name');
         $store->address	= $request->input('address');
         $store->pr = $request->input('pr');
         $store->update();
 
-        return redirect('stores.index');
+        return to_route('stores.index');
     }
 
     /**
@@ -98,8 +100,9 @@ class StoreController extends Controller
     public function destroy($id)
     {
         //削除する
-        $stores = Ask::findOrFail($id)->delete();
+        //dd($id);
+        $stores = Stores::findOrFail($id)->delete();
 
-        return redirect('stores.index');
+        return to_route('stores.index');
     }
 }

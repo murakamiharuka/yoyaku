@@ -4,20 +4,21 @@
  <div class="container">
      <h1>商品情報更新</h1>
  
-     <form action="{{ route('stores.update',$stores->id) }}" method="POST">
+     <form action="{{ route('stores.update',$store->id) }}" method="POST">
          @csrf
          @method('PUT')
          <div class="form-group">
              <label for="product-name">商品名</label>
-             <input type="text" name="name" id="product-name" class="form-control" value="{{ $stores->name }}">
+             <input type="text" name="name" id="product-name" class="form-control" value="{{ $store->name }}">
          </div>
          <div class="form-group">
              <label for="product-description">商品説明</label>
-             <textarea name="description" id="product-description" class="form-control">{{ $stores->description }}</textarea>
+             <input type="text" name="address" id="product-description" class="form-control" value="{{ $store->address }}">
+             
          </div>
          <div class="form-group">
              <label for="product-price">価格</label>
-             <input type="number" name="price" id="product-price" class="form-control" value="{{ $stores->price }}">
+             <input type="text" name="pr" id="product-price" class="form-control" value="{{ $store->pr }}">
          </div>
          {{-- <div class="form-group">
              <label for="product-category">カテゴリ</label>
